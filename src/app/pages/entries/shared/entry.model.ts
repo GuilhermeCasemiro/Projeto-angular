@@ -1,6 +1,7 @@
 import { Category } from '../../categories/shared/category.model';
+import { BaseResourceModel } from 'src/app/shared/models/base-resource.model';
 
-export class Entry {
+export class Entry extends BaseResourceModel {
     constructor(
         public id?: number,
         public name?: string,
@@ -11,14 +12,19 @@ export class Entry {
         public paid?: boolean,
         public categoryId?: number,
         public category?: Category
-    ){}
+    ) {
+        super();
+    }
+    static fromJson(jsonData: any): Entry {
+        return Object.assign(new Entry(), jsonData);
+    }
 
-   static types = {
-       expense: 'Despesa',
-       renevue: 'Receita',
-   }
-   
-   get paidText(): string {
-       return this.paid ? 'Pago': 'Pendente';
-   }
+    static types = {
+        expense: 'Despesa',
+        revenue: 'Receita',
+    }
+
+    get paidText(): string {
+        return this.paid ? 'Pago' : 'Pendente';
+    }
 }
