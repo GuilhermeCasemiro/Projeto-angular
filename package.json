@@ -25,7 +25,7 @@
     "chart.js": "^2.9.3",
     "currency-formatter": "^1.5.5",
     "i": "^0.3.6",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "moment": "^2.24.0",
     "powershell": "^2.3.1",
     "primeicons": "^2.0.0",
